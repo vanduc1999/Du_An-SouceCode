@@ -11,6 +11,7 @@ const Exam2 = () => {
     const [open, setOpen] = useState(false)
 
     const onCreate = () => {
+        setFormData(DEFAULT_STUDENT)
         setOpen(true)
     }
 
@@ -36,10 +37,10 @@ const Exam2 = () => {
         })
     }
 
-    const onSubmit = () => {
-        if(formData.id) {
+    const onSubmit = (id, data) => {
+        if(id) {
             const newDataSource = dataSource.map((item) => {
-                return item.id === formData.id ? formData : item
+                return item.id === id ? {id: id, ...data} :item;
             })
 
             setDataSource(newDataSource)
@@ -49,7 +50,7 @@ const Exam2 = () => {
                 ...dataSource,
                 {
                     id: Math.random(),
-                    ...formData
+                    ...data,
                 }
             ])
         }
