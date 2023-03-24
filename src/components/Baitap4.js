@@ -1,8 +1,10 @@
 import { useState } from "react";
 
-const Baitap3 = () => {
+
+const Baitap4 = () => {
   const [value, setValue] = useState("");
-  const [sum, setSum] = useState(0);
+  const [firtName, setfirtName] = useState('');
+  const [fullName, setFullName] = useState(' ');
 
   const onChange = (e) => {
     const value = e.target.value;
